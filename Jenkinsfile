@@ -22,7 +22,7 @@ pipeline {
                 print("INFO: Deploy - ${COMPONENT} scripts for softline installation.")
                 {
                     sh '''
-                        echo #{AP_CONFIG_FILE}
+                        echo ${AP_CONFIG_FILE}
                     '''
                 }
             }
