@@ -10,7 +10,7 @@ pipeline {
         PATH = "$PYENV_ROOT/bin:$PATH"
     }
     stages {
-        stage('Deploy scripts') {
+        stage('Deploy scripts ya') {
             environment {
                 SOFLINE_INVENTORY_PATH = "softline/production/ya/ansible/inventory"
                 INVENTORY_DIR = "${CUSTOMERS_DIRECTORY}/${SOFLINE_INVENTORY_PATH}"
@@ -20,6 +20,8 @@ pipeline {
                 sh "echo INFO: Deploy - ${COMPONENT} scripts for softline installation."
                 sh "echo ${AP_CONFIG_FILE}"
             }
+        }
+        stage('Deploy scripts aws')
             environment {
                 SOFLINE_INVENTORY_PATH = "noventiq/production/aws/ansible/inventory"
                 INVENTORY_DIR = "${CUSTOMERS_DIRECTORY}/${SOFLINE_INVENTORY_PATH}"
