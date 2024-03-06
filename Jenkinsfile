@@ -21,7 +21,7 @@ pipeline {
                 sh "echo ${AP_CONFIG_FILE}"
             }
         }
-        stage('Deploy scripts aws')
+        stage('Deploy scripts aws') {
             environment {
                 SOFLINE_INVENTORY_PATH = "noventiq/production/aws/ansible/inventory"
                 INVENTORY_DIR = "${CUSTOMERS_DIRECTORY}/${SOFLINE_INVENTORY_PATH}"
