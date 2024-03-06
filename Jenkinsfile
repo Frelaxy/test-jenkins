@@ -5,7 +5,7 @@ pipeline {
     environment {
         COMPONENT = "support"
         VERSION = "master"
-        // DEPLOY_ID = BUILD_TIMESTAMP
+        DEPLOY_ID = BUILD_TIMESTAMP
         CUSTOMERS_DIRECTORY = "/home/active/mgmt/ansible/customers"
         PYENV_VERSION = "3.8.3"
         PYENV_ROOT = "/home/active/.pyenv"
