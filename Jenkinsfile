@@ -9,7 +9,7 @@ pipeline {
         CUSTOMERS_DIRECTORY = "/home/active/mgmt/ansible/customers"
         PYENV_VERSION = "3.8.3"
         PYENV_ROOT = "/home/active/.pyenv"
-        PATH = "$PYENV_ROOT/bin:$PATH"
+        // PATH = "$PYENV_ROOT/bin:$PATH"
     }
     stages {
         stage('Deploy scripts') {
@@ -21,9 +21,7 @@ pipeline {
             steps {
                 print("INFO: Deploy - ${COMPONENT} scripts for softline installation.")
                 {
-                    sh '''
-                        echo ${AP_CONFIG_FILE}
-                    '''
+                    sh "echo ${AP_CONFIG_FILE}"
                 }
             }
         }
