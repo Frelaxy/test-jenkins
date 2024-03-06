@@ -11,24 +11,20 @@ pipeline {
     }
     stages {
         stage('Deploy scripts ya') {
-            environment {
-                SOFLINE_INVENTORY_PATH = "softline/production/ya/ansible/inventory"
-                INVENTORY_DIR = "${CUSTOMERS_DIRECTORY}/${SOFLINE_INVENTORY_PATH}"
-                AP_CONFIG_FILE = "${INVENTORY_DIR}/group_vars/all/ap.yml"
-            }
             steps {
+                script {
+                    env.SOFLINE_INVENTORY_PATH = "softline/production/ya/ansible/inventory"
+                    env.INVENTORY_DIR = "${CUSTOMERS_DIRECTORY}/${SOFLINE_INVENTORY_PATH}"
+                    env.AP_CONFIG_FILE = "${INVENTORY_DIR}/group_vars/all/ap.yml"
+                }
                 sh "echo INFO: Deploy - ${COMPONENT} scripts for softline installation."
                 sh "echo ${AP_CONFIG_FILE}"
-            }
-        }
-        stage('Deploy scripts aws') {
-            environment {
-                SOFLINE_INVENTORY_PATH = "noventiq/production/aws/ansible/inventory"
-                INVENTORY_DIR = "${CUSTOMERS_DIRECTORY}/${SOFLINE_INVENTORY_PATH}"
-                AP_CONFIG_FILE = "${INVENTORY_DIR}/group_vars/all/ap.yml"
-            }
-            steps {
-                sh "echo INFO: Deploy - ${COMPONENT} scripts for softline installation."
+                script {
+                    env.SOFLINE_INVENTORY_PATH = "noventiq/production/aws/ansible/inventory"
+                    env.INVENTORY_DIR = "${CUSTOMERS_DIRECTORY}/${SOFLINE_INVENTORY_PATH}"
+                    env.AP_CONFIG_FILE = "${INVENTORY_DIR}/group_vars/all/ap.yml"
+                }
+                sh "echo INFO: Deploy - ${COMPONENT} scripts for noventiq installation."
                 sh "echo ${AP_CONFIG_FILE}"
             }
         }
