@@ -14,12 +14,12 @@ pipeline {
     stages {
         stage('Deploy scripts') {
             steps {
-                print("INFO: Deploy - ${COMPONENT} scripts for softline installation.")
-                environment {
+               environment {
                     SOFLINE_INVENTORY_PATH = "softline/production/ya/ansible/inventory"
                     INVENTORY_DIR = "${CUSTOMERS_DIRECTORY}/${SOFLINE_INVENTORY_PATH}"
                     AP_CONFIG_FILE = "${INVENTORY_DIR}/group_vars/all/ap.yml"
                 }
+                print("INFO: Deploy - ${COMPONENT} scripts for softline installation.")
                 {
                     sh '''
                         echo #{AP_CONFIG_FILE}
